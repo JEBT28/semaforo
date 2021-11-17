@@ -1,0 +1,221 @@
+@font-face {
+    font-family: 'digital';
+    src: url('./DS-DIGII.TTF'); 
+}
+
+body{
+    padding: 0;
+    margin: 0;
+    height: auto;
+    min-height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.base{
+    position:relative;
+    z-index: 0;
+    width: 700px;
+    height: 700px;
+    display: grid;
+    display: -ms-grid;
+    grid-template-columns: repeat(10, 10%);
+    -ms-grid-columns: repeat(10, 10%);
+    grid-template-rows: repeat(10, 10%);
+    -ms-grid-rows: repeat(10, 10%);
+    background: greenyellow;
+}
+.asfalto{
+    background-color: gray;
+}
+
+.calle {
+    width: 100%;
+    height: 100%;
+}
+
+.calle-norteSur{
+
+    grid-column: 5;
+    grid-row-start: 1;
+    grid-row-end: 11;
+    border-right: 10px white dashed;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.calle-surNorte{
+    grid-column: 6;
+    grid-row-start: 1;
+    grid-row-end: 11;
+    border-left: 10px white dashed;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+}
+.calle-esteOeste{
+    grid-row: 5;
+    grid-column-start: 1;
+    grid-column-end: 11;
+    border-bottom: 10px white dashed;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+}
+
+.calle-oesteEste{
+    grid-row: 6;
+    grid-column-start: 1;
+    grid-column-end: 11;
+    border-top: 10px white dashed;
+    display: flex;
+    align-items: center;
+}
+
+
+.temporizador{
+    grid-row-start: 5;
+    grid-row-end: 7;
+    grid-column-start: 5;
+    grid-column-end: 7;
+    background-color: gray;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 2.5px;
+}
+.temporizador > #contador{
+    place-self: center center;
+    color: white;
+    font-family: digital;
+    width: fit-content;
+    height: fit-content;
+    font-size: 75px;
+    letter-spacing: 5px;
+    margin: 0;
+    padding: 0;
+}
+
+.semaforos{
+    position: absolute;
+    z-index: 2;
+    width: 900px;
+    height: 600px;
+    display: grid;
+    display: -ms-grid;
+    grid-template-columns: repeat(10, 10%);
+    -ms-grid-columns: repeat(10, 10%);
+    grid-template-rows: repeat(10, 10%);
+    -ms-grid-rows: repeat(10, 10%);
+    background: transparent;
+}
+
+.sur{
+    grid-column: 7;
+    grid-row-start: 3;
+    grid-row-end: 5;
+    place-self: center center;
+}
+.norte{
+    grid-column: 4;
+    grid-row-start: 7;
+    grid-row-end: 9;
+    place-self: center center;
+    transform: rotate(180deg);
+    margin-top: 20%;
+}
+.este{
+    grid-row: 4;
+    grid-column-start:3 ;
+    grid-column-end: 5;
+    place-self: center end;
+    margin-right: 20%;
+    transform: rotate(-90deg);
+}
+.oeste{
+    grid-row: 7;
+    grid-column-start:7 ;
+    grid-column-end: 9;
+    place-self: center center;
+    transform: rotate(90deg);
+    margin-top: 10%;
+    margin-right: 20%;
+}
+.semaforo{
+    width: 40px;
+    padding: 5px;
+    height: auto;
+    display: grid;
+    grid-template-rows: repeat(3, 30px);
+    -ms-grid-rows: repeat(3, 30px);
+    row-gap: 5px;
+    background-color: grey;
+    border-radius: 25px;
+}
+
+.luz-roja{
+    border-radius: 100%;
+    background-color: red;
+    width: 30px;
+    height: 30px;
+    margin:0;
+    padding:0;
+    place-self: center center;
+    filter: opacity(0.2);
+}
+.luz-verde{
+    border-radius: 100%;
+    background-color: green;
+    width: 30px;
+    height: 30px;
+    margin:0;
+    padding:0;
+    place-self: center center;
+    filter: opacity(0.2);
+}
+.luz-amarilla{
+    border-radius: 100%;
+    background-color: yellow;
+    width: 30px;
+    height: 30px;
+    margin:0;
+    padding:0;
+    place-self: center center;
+    filter: opacity(0.2);
+}
+
+
+#panel-control{
+    position: fixed;
+    top:0;
+    right: inherit;
+    height: 80px;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#panel-control > button {
+    border:none;
+    width: auto;
+    margin:0 .25rem;
+    height: auto;
+    color: white;
+    background-color: #023e8a;
+    border-radius: .5rem;
+    padding: .5rem 1rem; 
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.15);
+    font-weight: 700;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#panel-control > button:active{
+
+    background-color: #0096c7;
+
+}
