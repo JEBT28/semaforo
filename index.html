@@ -11,7 +11,7 @@
     <div class="base">
         <div class="asfalto calle calle-norteSur">
             <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
-                y="0px" fill="#ffe5d9" style="transform: rotate(180deg);" viewBox="0 0 1000 1000"
+                y="0px" fill="#ffe5d9" style="transform: rotate(180deg);grid-row-start:2;" viewBox="0 0 1000 1000"
                 enable-background="new 0 0 1000 1000" xml:space="preserve">
                 <g>
                     <g transform="translate(0.000000,511.000000) scale(0.100000,-0.100000)">
@@ -23,7 +23,7 @@
         </div>
         <div class="asfalto calle calle-surNorte">
             <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
-                y="0px" fill="#94d2bd" viewBox="0 0 1000 1000" enable-background="new 0 0 1000 1000"
+                y="0px" fill="#94d2bd" style="grid-row-start:5;" viewBox="0 0 1000 1000" enable-background="new 0 0 1000 1000"
                 xml:space="preserve">
                 <g>
                     <g transform="translate(0.000000,511.000000) scale(0.100000,-0.100000)">
@@ -35,7 +35,7 @@
         </div>
         <div class="asfalto calle calle-oesteEste">
             <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
-            y="0px" fill="#94d2bd" style="height: 100%; width: auto; transform: rotate(90deg);" viewBox="0 0 1000 1000" enable-background="new 0 0 1000 1000"
+            y="0px" fill="#fff" style="height: 100%; width: auto; transform: rotate(90deg);grid-column-start:2;place-self: center center;;" viewBox="0 0 1000 1000" enable-background="new 0 0 1000 1000"
             xml:space="preserve">
             <g>
                 <g transform="translate(0.000000,511.000000) scale(0.100000,-0.100000)">
@@ -47,7 +47,7 @@
         </div>
         <div class="asfalto calle calle-esteOeste">
             <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
-            y="0px" fill="#94d2bd" style="height: 100%; width: auto; transform: rotate(-90deg);" viewBox="0 0 1000 1000" enable-background="new 0 0 1000 1000"
+            y="0px" fill="#94d" style="height: 100%; width: auto; transform: rotate(-90deg); grid-column-start:5;" viewBox="0 0 1000 1000" enable-background="new 0 0 1000 1000"
             xml:space="preserve">
             <g>
                 <g transform="translate(0.000000,511.000000) scale(0.100000,-0.100000)">
@@ -58,7 +58,7 @@
         </svg>
         </div>
         <div class="temporizador">
-            <h1 id="contador">00</h1>
+            <h1 id="contador">0</h1>
         </div>
     </div>
     <div class="semaforos">
@@ -86,7 +86,7 @@
     <div id="panel-control">
         <button id="iniciar" >Iniciar</button>
         <button id="intermitentes">Intermitentes</button>
-        <button id="reset">Reset</button>
+        <button id="reset">Detener</button>
     </div>
 </body>
 <script src="./app.js"></script>

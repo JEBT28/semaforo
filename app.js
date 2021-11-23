@@ -2,7 +2,7 @@
 // Verde: 10 seg
 // Verde-Parpadeo: 3 seg
 // Amarillo: 3 seg
-// Rojo: 2 seg
+// Rojo: 3 seg
 let conteo = 0;
 var semaforoNorte = document.querySelector(".norte.semaforo");
 var semaforoSur = document.querySelector(".sur.semaforo");
@@ -24,21 +24,29 @@ window.onload = () => {
 };
 
 const IniciarConteo = () => {
-    conteo = 0;
-    semaforoEste.querySelector(".luz-roja").style.filter = "opacity(1)";
-    semaforoOeste.querySelector(".luz-roja").style.filter = "opacity(1)";
+    conteo = 1;
+    clearInterval(intervaloVerde);
+    clearInterval(intervaloAmarillo);
+    clearInterval(intervaloRojo);
+
+    intervaloVerde = null;
+    intervaloAmarillo = null;
+    intervaloRojo = null;
+
+    semaforoEste.querySelector(".luz-roja").style.backgroundColor = "red";
+    semaforoOeste.querySelector(".luz-roja").style.backgroundColor = "red";
     PeriodoVerde(semaforoNorte, semaforoSur);
 
 };
 
 const Intermitentes = () => {
-    contador.style.color = "white";
+    contador.style.color = "transparent";
     intervaloAmarillo = setInterval(() => {
-        contador.style.color = contador.style.color == "white" ? "yellow" : "white";
-        semaforoNorte.querySelector(".luz-amarilla").style.filter = semaforoNorte.querySelector(".luz-amarilla").style.filter == "opacity(1)" ? "opacity(0.2)" : "opacity(1)";
-        semaforoSur.querySelector(".luz-amarilla").style.filter = semaforoSur.querySelector(".luz-amarilla").style.filter == "opacity(1)" ? "opacity(0.2)" : "opacity(1)";
-        semaforoEste.querySelector(".luz-amarilla").style.filter = semaforoEste.querySelector(".luz-amarilla").style.filter == "opacity(1)" ? "opacity(0.2)" : "opacity(1)";
-        semaforoOeste.querySelector(".luz-amarilla").style.filter = semaforoOeste.querySelector(".luz-amarilla").style.filter == "opacity(1)" ? "opacity(0.2)" : "opacity(1)";
+        contador.style.color = contador.style.color == "transparent" ? "yellow" : "transparent";
+        semaforoNorte.querySelector(".luz-amarilla").style.backgroundColor = semaforoNorte.querySelector(".luz-amarilla").style.backgroundColor == "yellow" ? "gainsboro": "yellow";
+        semaforoSur.querySelector(".luz-amarilla").style.backgroundColor = semaforoSur.querySelector(".luz-amarilla").style.backgroundColor == "yellow" ? "gainsboro": "yellow";
+        semaforoEste.querySelector(".luz-amarilla").style.backgroundColor = semaforoEste.querySelector(".luz-amarilla").style.backgroundColor == "yellow" ? "gainsboro": "yellow";
+        semaforoOeste.querySelector(".luz-amarilla").style.backgroundColor = semaforoOeste.querySelector(".luz-amarilla").style.backgroundColor == "yellow" ? "gainsboro": "yellow";
         conteo += .5;
     }, 500)
 }
@@ -53,145 +61,120 @@ const Reset = () => {
     intervaloAmarillo = null;
     intervaloRojo = null;
 
-    semaforoNorte.querySelector(".luz-amarilla").style.filter = "opacity(0.2)";
-    semaforoSur.querySelector(".luz-amarilla").style.filter = "opacity(0.2)";
-    semaforoEste.querySelector(".luz-amarilla").style.filter = "opacity(0.2)";
-    semaforoOeste.querySelector(".luz-amarilla").style.filter = "opacity(0.2)";
-    semaforoEste.querySelector(".luz-verde").style.filter = "opacity(0.2)";
-    semaforoNorte.querySelector(".luz-verde").style.filter = "opacity(0.2)";
-    semaforoOeste.querySelector(".luz-verde").style.filter = "opacity(0.2)";
-    semaforoSur.querySelector(".luz-verde").style.filter = "opacity(0.2)";
-    semaforoNorte.querySelector(".luz-roja").style.filter = "opacity(0.2)";
-    semaforoSur.querySelector(".luz-roja").style.filter = "opacity(0.2)";
-    semaforoEste.querySelector(".luz-roja").style.filter = "opacity(0.2)";
-    semaforoOeste.querySelector(".luz-roja").style.filter = "opacity(0.2)";
-    contador.style.color = "white";
+    semaforoNorte.querySelector(".luz-amarilla").style.backgroundColor = "gainsboro";
+    semaforoSur.querySelector(".luz-amarilla").style.backgroundColor = "gainsboro";
+    semaforoEste.querySelector(".luz-amarilla").style.backgroundColor = "gainsboro";
+    semaforoOeste.querySelector(".luz-amarilla").style.backgroundColor = "gainsboro";
+    semaforoEste.querySelector(".luz-verde").style.backgroundColor = "gainsboro";
+    semaforoNorte.querySelector(".luz-verde").style.backgroundColor = "gainsboro";
+    semaforoOeste.querySelector(".luz-verde").style.backgroundColor = "gainsboro";
+    semaforoSur.querySelector(".luz-verde").style.backgroundColor = "gainsboro";
+    semaforoNorte.querySelector(".luz-roja").style.backgroundColor = "gainsboro";
+    semaforoSur.querySelector(".luz-roja").style.backgroundColor = "gainsboro";
+    semaforoEste.querySelector(".luz-roja").style.backgroundColor = "gainsboro";
+    semaforoOeste.querySelector(".luz-roja").style.backgroundColor = "gainsboro";
+    contador.style.color = "transparent";
     conteo = 0
-    contador.innerHTML = conteo.toLocaleString("en-US", {
-        minimumIntegerDigits: 2,
-        useGrouping: false,
-    });
+    contador.innerHTML = conteo;
 }
 
 const PeriodoVerde = (semaforoA, semaforoB,) => {
     contador.style.color = "green";
-    contador.innerHTML = conteo.toLocaleString("en-US", {
-        minimumIntegerDigits: 2,
-        useGrouping: false,
-    });
-    semaforoA.querySelector(".luz-roja").style.filter = "opacity(0.2)";
-    semaforoB.querySelector(".luz-roja").style.filter = "opacity(0.2)";
-    semaforoA.querySelector(".luz-verde").style.filter = "opacity(1)";
-    semaforoB.querySelector(".luz-verde").style.filter = "opacity(1)";
-    conteo = 0;
+    contador.innerHTML = conteo;
+    semaforoA.querySelector(".luz-roja").style.backgroundColor = "gainsboro";
+    semaforoB.querySelector(".luz-roja").style.backgroundColor = "gainsboro";
+    semaforoA.querySelector(".luz-verde").style.backgroundColor = "green";
+    semaforoB.querySelector(".luz-verde").style.backgroundColor = "green";
+    conteo = 1;
     intervaloVerde = setInterval(() => {
-        contador.innerHTML = conteo.toLocaleString("en-US", {
-            minimumIntegerDigits: 2,
-            useGrouping: false,
-        });
-        conteo++;
-    }, 1000);
+        contador.innerHTML = Math.floor(conteo);
+        conteo += 0.5;
+    }, 500);
 
     setTimeout(() => {
         if (intervaloVerde == null) {
             clearInterval(intervaloVerde);
             return
         }
-        else
-        {
-        clearInterval(intervaloVerde);
-        intervaloVerde = setInterval(() => {
-            contador.style.color = contador.style.color == "white" ? "green" : "white";
-            semaforoA.querySelector(".luz-verde").style.filter = semaforoA.querySelector(".luz-verde").style.filter == "opacity(1)" ? "opacity(0.2)" : "opacity(1)";
-            semaforoB.querySelector(".luz-verde").style.filter = semaforoB.querySelector(".luz-verde").style.filter == "opacity(1)" ? "opacity(0.2)" : "opacity(1)";
-            contador.innerHTML = Math.floor(conteo).toLocaleString("en-US", {
-                minimumIntegerDigits: 2,
-                useGrouping: false,
-            });
-            conteo += .5;
-        }, 500)
-    }
-    }, 10000);
+        else {
+            clearInterval(intervaloVerde);
+            intervaloVerde = setInterval(() => {
+                contador.style.color = contador.style.color == "green" ? "transparent" : "green";
+                semaforoA.querySelector(".luz-verde").style.backgroundColor = semaforoA.querySelector(".luz-verde").style.backgroundColor == "green" ? "gainsboro" : "green";
+                semaforoB.querySelector(".luz-verde").style.backgroundColor = semaforoB.querySelector(".luz-verde").style.backgroundColor == "green" ? "gainsboro" : "green";
+                contador.innerHTML = Math.floor(conteo);
+                conteo += .5;
+            }, 500)
+        }
+    }, 9500);
+    setTimeout(() => { conteo = 1; }, 10500);
 
     setTimeout(() => {
-        conteo=0;
+        conteo = 1;
         if (intervaloVerde == null) {
             clearInterval(intervaloVerde);
         }
-        else
-        {
-        clearInterval(intervaloVerde);
-        semaforoA.querySelector(".luz-verde").style.filter = "opacity(0.2)";
-        semaforoB.querySelector(".luz-verde").style.filter = "opacity(0.2)";
-        PeriodoAmarillo(semaforoA, semaforoB);
+        else {
+            clearInterval(intervaloVerde);
+            semaforoA.querySelector(".luz-verde").style.backgroundColor = "gainsboro";
+            semaforoB.querySelector(".luz-verde").style.backgroundColor = "gainsboro";
+            PeriodoAmarillo(semaforoA, semaforoB);
         }
     }, 13500);
 };
 
 const PeriodoAmarillo = (semaforoA, semaforoB) => {
-   
+
     contador.style.color = "yellow";
-    contador.innerHTML = conteo.toLocaleString("en-US", {
-        minimumIntegerDigits: 2,
-        useGrouping: false,
-    });
-    semaforoA.querySelector(".luz-amarilla").style.filter = "opacity(1)";
-    semaforoB.querySelector(".luz-amarilla").style.filter = "opacity(1)";
-   intervaloAmarillo = setInterval(() => {
-    contador.innerHTML = conteo.toLocaleString("en-US", {
-        minimumIntegerDigits: 2,
-        useGrouping: false,
-    });
-    conteo++;
-}, 1000);
+    contador.innerHTML = conteo;
+    semaforoA.querySelector(".luz-amarilla").style.backgroundColor = "yellow";
+    semaforoB.querySelector(".luz-amarilla").style.backgroundColor = "yellow";
+    intervaloAmarillo = setInterval(() => {
+        contador.innerHTML = conteo;
+        conteo++;
+    }, 1000);
+    setTimeout(() => {
+        semaforoA.querySelector(".luz-amarilla").style.backgroundColor = "gainsboro";
+        semaforoB.querySelector(".luz-amarilla").style.backgroundColor = "gainsboro";
+        contador.style.color = "transparent";
+    }, 3500)
 
     setTimeout(() => {
-        conteo = 0;
+
         if (intervaloAmarillo == null) {
             clearInterval(intervaloAmarillo);
         }
-        else
-        {
-        clearInterval(intervaloAmarillo);
-        semaforoA.querySelector(".luz-amarilla").style.filter = "opacity(0.2)";
-        semaforoB.querySelector(".luz-amarilla").style.filter = "opacity(0.2)";
-        PeriodoRojo(semaforoA, semaforoB);
+        else {
+            clearInterval(intervaloAmarillo);
+            conteo = 1;
+            PeriodoRojo(semaforoA, semaforoB);
         }
     }, 4000);
 };
 
 const PeriodoRojo = (semaforoA, semaforoB) => {
     contador.style.color = "red";
-    contador.innerHTML = conteo.toLocaleString("en-US", {
-        minimumIntegerDigits: 2,
-        useGrouping: false,
-    });
-    semaforoA.querySelector(".luz-roja").style.filter = "opacity(1)";
-    semaforoB.querySelector(".luz-roja").style.filter = "opacity(1)";
+    contador.innerHTML = conteo;
+    semaforoA.querySelector(".luz-roja").style.backgroundColor = "red";
+    semaforoB.querySelector(".luz-roja").style.backgroundColor = "red";
     intervaloRojo = setInterval(() => {
-        contador.innerHTML = conteo.toLocaleString("en-US", {
-            minimumIntegerDigits: 2,
-            useGrouping: false,
-        });
+        contador.innerHTML = conteo;
         conteo++;
     }, 1000);
 
-    setTimeout(() => {  
-        conteo = 0
+    setTimeout(() => {
+        conteo = 1
         clearInterval(intervaloRojo);
-        sentido = sentido == "norte-sur"? "este-oeste" : "norte-sur";
+        sentido = sentido == "norte-sur" ? "este-oeste" : "norte-sur";
 
-        if(sentido == "norte-sur")
-        {
+        if (sentido == "norte-sur") {
             PeriodoVerde(semaforoNorte, semaforoSur);
         }
-        else
-        {
+        else {
             PeriodoVerde(semaforoEste, semaforoOeste);
         }
-    }, 4000);
+    }, 3000);
 
-   
 };
 
 

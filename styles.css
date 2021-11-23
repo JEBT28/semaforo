@@ -42,8 +42,8 @@ body{
     grid-row-start: 1;
     grid-row-end: 11;
     border-right: 10px white dashed;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-rows: repeat(6,16.6%);
     align-items: center;
 }
 .calle-surNorte{
@@ -51,8 +51,8 @@ body{
     grid-row-start: 1;
     grid-row-end: 11;
     border-left: 10px white dashed;
-    display: flex;
-    flex-direction: column-reverse;
+    display: grid;
+    grid-template-rows: repeat(6,16.6%);
     align-items: center;
 }
 .calle-esteOeste{
@@ -60,8 +60,8 @@ body{
     grid-column-start: 1;
     grid-column-end: 11;
     border-bottom: 10px white dashed;
-    display: flex;
-    flex-direction: row-reverse;
+    display: grid;
+    grid-template-columns: repeat(6,16.6%);
     align-items: center;
 }
 
@@ -70,7 +70,8 @@ body{
     grid-column-start: 1;
     grid-column-end: 11;
     border-top: 10px white dashed;
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(6,16.6%);
     align-items: center;
 }
 
@@ -103,8 +104,8 @@ body{
 .semaforos{
     position: absolute;
     z-index: 2;
-    width: 900px;
-    height: 600px;
+    width: 700px;
+    height: 700px;
     display: grid;
     display: -ms-grid;
     grid-template-columns: repeat(10, 10%);
@@ -118,7 +119,7 @@ body{
     grid-column: 7;
     grid-row-start: 3;
     grid-row-end: 5;
-    place-self: center center;
+    place-self: center end;
 }
 .norte{
     grid-column: 4;
@@ -132,8 +133,8 @@ body{
     grid-row: 4;
     grid-column-start:3 ;
     grid-column-end: 5;
-    place-self: center end;
-    margin-right: 20%;
+    place-self: center center;
+    margin-right: -10%;
     transform: rotate(-90deg);
 }
 .oeste{
@@ -143,7 +144,6 @@ body{
     place-self: center center;
     transform: rotate(90deg);
     margin-top: 10%;
-    margin-right: 20%;
 }
 .semaforo{
     width: 40px;
@@ -159,33 +159,33 @@ body{
 
 .luz-roja{
     border-radius: 100%;
-    background-color: red;
+    background-color: gainsboro;
     width: 30px;
     height: 30px;
     margin:0;
     padding:0;
     place-self: center center;
-    filter: opacity(0.2);
+
 }
 .luz-verde{
     border-radius: 100%;
-    background-color: green;
+    background-color: gainsboro;
     width: 30px;
     height: 30px;
     margin:0;
     padding:0;
     place-self: center center;
-    filter: opacity(0.2);
+
 }
 .luz-amarilla{
     border-radius: 100%;
-    background-color: yellow;
+    background-color: gainsboro;
     width: 30px;
     height: 30px;
     margin:0;
     padding:0;
     place-self: center center;
-    filter: opacity(0.2);
+
 }
 
 
