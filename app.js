@@ -24,6 +24,8 @@ window.onload = () => {
 };
 
 const IniciarConteo = () => {
+    document.getElementById("intermitentes").disabled = true;
+    document.getElementById("intermitentes").style.backgroundColor = "gray";
     conteo = 1;
     clearInterval(intervaloVerde);
     clearInterval(intervaloAmarillo);
@@ -40,6 +42,8 @@ const IniciarConteo = () => {
 };
 
 const Intermitentes = () => {
+    document.getElementById("iniciar").disabled = true;
+    document.getElementById("iniciar").style.backgroundColor = "gray";
     contador.style.color = "transparent";
     intervaloAmarillo = window.setInterval(() => {
         contador.style.color = contador.style.color == "transparent" ? "yellow" : "transparent";
@@ -76,6 +80,11 @@ const Reset = () => {
     contador.style.color = "transparent";
     conteo = 0
     contador.innerHTML = conteo;
+    document.getElementById("iniciar").disabled = false;
+    document.getElementById("intermitentes").disabled = false;
+    document.getElementById("iniciar").style.backgroundColor = "#023e8a";
+    document.getElementById("intermitentes").style.backgroundColor = "#023e8a";
+    
 }
 
 const PeriodoVerde = (semaforoA, semaforoB,) => {
