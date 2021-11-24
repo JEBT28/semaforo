@@ -110,7 +110,7 @@ const PeriodoVerde = (semaforoA, semaforoB,) => {
     setTimeout(() => { conteo = 1; }, 10500);
 
     setTimeout(() => {
-        conteo = 1;
+       
         if (intervaloVerde == null) {
             clearInterval(intervaloVerde);
         }
@@ -125,19 +125,21 @@ const PeriodoVerde = (semaforoA, semaforoB,) => {
 
 const PeriodoAmarillo = (semaforoA, semaforoB) => {
 
+    intervaloAmarillo = setInterval(() => {
+        contador.innerHTML = Math.floor(conteo);
+        conteo+=.5;
+    }, 500);
     contador.style.color = "yellow";
-    contador.innerHTML = conteo;
+    conteo = 1.5;
+    contador.innerHTML = Math.floor(conteo);
     semaforoA.querySelector(".luz-amarilla").style.backgroundColor = "yellow";
     semaforoB.querySelector(".luz-amarilla").style.backgroundColor = "yellow";
-    intervaloAmarillo = setInterval(() => {
-        contador.innerHTML = conteo;
-        conteo++;
-    }, 1000);
     setTimeout(() => {
         semaforoA.querySelector(".luz-amarilla").style.backgroundColor = "gainsboro";
         semaforoB.querySelector(".luz-amarilla").style.backgroundColor = "gainsboro";
         contador.style.color = "transparent";
-    }, 3500)
+    }, 2500)
+   
 
     setTimeout(() => {
 
@@ -146,25 +148,39 @@ const PeriodoAmarillo = (semaforoA, semaforoB) => {
         }
         else {
             clearInterval(intervaloAmarillo);
-            conteo = 1;
+            conteo = 1.5;
             PeriodoRojo(semaforoA, semaforoB);
         }
-    }, 4000);
+    }, 3000);
+
+
 };
 
 const PeriodoRojo = (semaforoA, semaforoB) => {
     contador.style.color = "red";
-    contador.innerHTML = conteo;
+    contador.innerHTML = Math.floor(conteo);
     semaforoA.querySelector(".luz-roja").style.backgroundColor = "red";
     semaforoB.querySelector(".luz-roja").style.backgroundColor = "red";
     intervaloRojo = setInterval(() => {
-        contador.innerHTML = conteo;
-        conteo++;
-    }, 1000);
+        contador.innerHTML = Math.floor(conteo);
+        conteo+=.5;
+    }, 500);
+    setTimeout(()=>{
+
+        if (sentido == "norte-sur") {
+            
+            semaforoEste.querySelector(".luz-roja").style.backgroundColor = "gainsboro";
+            semaforoOeste.querySelector(".luz-roja").style.backgroundColor = "gainsboro";
+        }
+        else {
+            semaforoNorte.querySelector(".luz-roja").style.backgroundColor = "gainsboro";
+            semaforoSur.querySelector(".luz-roja").style.backgroundColor = "gainsboro";
+        }
+    },1500)
 
     setTimeout(() => {
-        conteo = 1
         clearInterval(intervaloRojo);
+        conteo = 1
         sentido = sentido == "norte-sur" ? "este-oeste" : "norte-sur";
 
         if (sentido == "norte-sur") {
@@ -173,7 +189,7 @@ const PeriodoRojo = (semaforoA, semaforoB) => {
         else {
             PeriodoVerde(semaforoEste, semaforoOeste);
         }
-    }, 3000);
+    }, 2000);
 
 };
 
