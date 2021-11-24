@@ -25,7 +25,7 @@ body{
     -ms-grid-columns: repeat(10, 10%);
     grid-template-rows: repeat(10, 10%);
     -ms-grid-rows: repeat(10, 10%);
-    background: greenyellow;
+    background: url('./cesped.jpg');
 }
 .asfalto{
     background-color: gray;
