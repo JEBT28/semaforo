@@ -41,7 +41,7 @@ const IniciarConteo = () => {
 
 const Intermitentes = () => {
     contador.style.color = "transparent";
-    intervaloAmarillo = setInterval(() => {
+    intervaloAmarillo = window.setInterval(() => {
         contador.style.color = contador.style.color == "transparent" ? "yellow" : "transparent";
         semaforoNorte.querySelector(".luz-amarilla").style.backgroundColor = semaforoNorte.querySelector(".luz-amarilla").style.backgroundColor == "yellow" ? "gainsboro": "yellow";
         semaforoSur.querySelector(".luz-amarilla").style.backgroundColor = semaforoSur.querySelector(".luz-amarilla").style.backgroundColor == "yellow" ? "gainsboro": "yellow";
@@ -86,7 +86,7 @@ const PeriodoVerde = (semaforoA, semaforoB,) => {
     semaforoA.querySelector(".luz-verde").style.backgroundColor = "green";
     semaforoB.querySelector(".luz-verde").style.backgroundColor = "green";
     conteo = 1;
-    intervaloVerde = setInterval(() => {
+    intervaloVerde = window.setInterval(() => {
         contador.innerHTML = Math.floor(conteo);
         conteo += 0.5;
     }, 500);
@@ -98,7 +98,7 @@ const PeriodoVerde = (semaforoA, semaforoB,) => {
         }
         else {
             clearInterval(intervaloVerde);
-            intervaloVerde = setInterval(() => {
+            intervaloVerde = window.setInterval(() => {
                 contador.style.color = contador.style.color == "green" ? "transparent" : "green";
                 semaforoA.querySelector(".luz-verde").style.backgroundColor = semaforoA.querySelector(".luz-verde").style.backgroundColor == "green" ? "gainsboro" : "green";
                 semaforoB.querySelector(".luz-verde").style.backgroundColor = semaforoB.querySelector(".luz-verde").style.backgroundColor == "green" ? "gainsboro" : "green";
@@ -125,7 +125,7 @@ const PeriodoVerde = (semaforoA, semaforoB,) => {
 
 const PeriodoAmarillo = (semaforoA, semaforoB) => {
 
-    intervaloAmarillo = setInterval(() => {
+    intervaloAmarillo = window.setInterval(() => {
         contador.innerHTML = Math.floor(conteo);
         conteo+=.5;
     }, 500);
@@ -161,7 +161,7 @@ const PeriodoRojo = (semaforoA, semaforoB) => {
     contador.innerHTML = Math.floor(conteo);
     semaforoA.querySelector(".luz-roja").style.backgroundColor = "red";
     semaforoB.querySelector(".luz-roja").style.backgroundColor = "red";
-    intervaloRojo = setInterval(() => {
+    intervaloRojo = window.setInterval(() => {
         contador.innerHTML = Math.floor(conteo);
         conteo+=.5;
     }, 500);
